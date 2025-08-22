@@ -43,16 +43,16 @@ const PlatformSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const getTransform = (startX: number, startY: number, index: number) => {
+  const getTransform = (startX: number, startY: number, index: number, finalX: number = 0, finalY: number = 0) => {
     const individualDelay = index * 0.04 // Cada elemento individual con delay de 0.04
     const rawProgress = Math.max(0, (scrollProgress - individualDelay) * 3) // Multiplicador 3x más sensible
     
     const convergencePhase = Math.min(1.2, rawProgress) // Permitir que vayan más allá del centro
-    const fadePhase = Math.max(0, (rawProgress - 0.95) * 20) // Fade out comienza en 0.95 y es muy rápido
+    const fadePhase = Math.max(0, (rawProgress - 1.1) * 20) // Fade out comienza en 1.1 para que llegue al centro
     
-    // Convergencia hacia el centro exacto
-    const x = startX * Math.pow(1 - Math.min(1, convergencePhase), 3)
-    const y = startY * Math.pow(1 - Math.min(1, convergencePhase), 3)
+    // Convergencia hacia la posición final especificada
+    const x = startX * Math.pow(1 - Math.min(1, convergencePhase), 3) + finalX * Math.min(1, convergencePhase)
+    const y = startY * Math.pow(1 - Math.min(1, convergencePhase), 3) + finalY * Math.min(1, convergencePhase)
     const opacity = scrollProgress > 0 ? Math.min(convergencePhase, 1 - fadePhase) : 0
     const scale = 0.3 + Math.min(1, convergencePhase) * 0.7 * (1 - fadePhase * 0.3)
     
@@ -89,19 +89,19 @@ const PlatformSection: React.FC = () => {
         </div>
 
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: scrollProgress >= 0 ? 1 : 0 }}>
-        <div className={`absolute left-[15%] transition-all duration-300 ease-out z-20`} 
+        <div className={`absolute left-[25%] transition-all duration-300 ease-out z-20`} 
           style={{
-            ...getTransform(-500, -300, 0),
-            top: scrollProgress > 0 ? '45%' : '105%'
+            ...getTransform(-300, -450, 0, -50, -80),
+            top: scrollProgress > 0 ? '25%' : '85%'
           }}>
           <div className="relative w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-lg flex items-center justify-center">
             <span className="text-white text-xs font-bold">📝</span>
           </div>
         </div>
-        <div className={`absolute left-[8%] bg-[#FFE4B5] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
+        <div className={`absolute left-[5%] bg-[#FFE4B5] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
           style={{
-            ...getTransform(-600, -250, 1),
-            top: scrollProgress > 0 ? '38%' : '98%'
+            ...getTransform(-600, 0, 0, 450, 0),
+            top: scrollProgress > 0 ? '50%' : '50%'
           }}>
           <span className="text-[#D2691E] text-sm font-semibold">📝 Pedidos en mesa</span>
         </div>
@@ -117,10 +117,10 @@ const PlatformSection: React.FC = () => {
         </div>
         <div className={`absolute right-[8%] bg-[#FFB6C1] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
           style={{
-            ...getTransform(600, -200, 3),
+            ...getTransform(-350, -400, 1, -415, -20),
             top: scrollProgress > 0 ? '45%' : '105%'
           }}>
-          <span className="text-[#DC143C] text-sm font-semibold">💳 Pagos digitales</span>
+          <span className="text-[#DC143C] text-sm font-semibold">💳 Pagos flexibles</span>
         </div>
 
         <div className={`absolute left-[18%] transition-all duration-300 ease-out z-20`} 
@@ -132,12 +132,12 @@ const PlatformSection: React.FC = () => {
             <span className="text-white text-xs font-bold">📱</span>
           </div>
         </div>
-        <div className={`absolute left-[5%] bg-[#E6E6FA] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
+        <div className={`absolute left-[45%] bg-[#E6E6FA] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
           style={{
-            ...getTransform(-650, 450, 5),
-            top: scrollProgress > 0 ? '77%' : '137%'
+            ...getTransform(0, 400, 1, 0, -65),
+            top: scrollProgress > 0 ? '65%' : '170%'
           }}>
-          <span className="text-[#9370DB] text-sm font-semibold">📱 Campañas automatizadas</span>
+          <span className="text-[#9370DB] text-sm font-semibold">📱 Campañas personalizadas</span>
         </div>
 
         <div className={`absolute right-[15%] transition-all duration-300 ease-out z-20`} 
@@ -151,28 +151,12 @@ const PlatformSection: React.FC = () => {
         </div>
         <div className={`absolute right-[5%] bg-[#F0FFF0] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
           style={{
-            ...getTransform(650, 500, 7),
-            top: scrollProgress > 0 ? '82%' : '142%'
+            ...getTransform(600, 390, 1, -425, 0),
+            top: scrollProgress > 0 ? '50%' : '50%'
           }}>
           <span className="text-[#228B22] text-sm font-semibold">🔗 Integración con POS</span>
         </div>
 
-        <div className={`absolute left-[8%] transition-all duration-300 ease-out z-20`} 
-          style={{
-            ...getTransform(-600, -50, 8),
-            top: scrollProgress > 0 ? '55%' : '115%'
-          }}>
-          <div className="relative w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg shadow-lg flex items-center justify-center">
-            <span className="text-white text-xs font-bold">📊</span>
-          </div>
-        </div>
-        <div className={`absolute left-[25%] bg-[#FFF8DC] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
-          style={{
-            ...getTransform(-400, 250, 9),
-            top: scrollProgress > 0 ? '62%' : '122%'
-          }}>
-          <span className="text-[#DAA520] text-sm font-semibold">📊 Análisis para reenvío</span>
-        </div>
 
         <div className={`absolute right-[10%] transition-all duration-300 ease-out z-20`} 
           style={{
@@ -183,12 +167,12 @@ const PlatformSection: React.FC = () => {
             <span className="text-white text-xs font-bold">💬</span>
           </div>
         </div>
-        <div className={`absolute right-[25%] bg-[#F5F5DC] px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-out z-20`} 
+        <div className={`absolute right-[25%] bg-[#F5F5DC] px-6 py-3 rounded-full shadow-lg transition-all duration-300 ease-out z-20`} 
           style={{
             ...getTransform(400, 200, 11),
             top: scrollProgress > 0 ? '55%' : '115%'
           }}>
-          <span className="text-[#8B4513] text-sm font-semibold">💬 Feedback inmediato</span>
+          <span className="text-[#8B4513] text-lg font-bold">🛒 Pedidos múltiples</span>
         </div>
 
         <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10`} 
