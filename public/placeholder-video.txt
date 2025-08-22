@@ -1,0 +1,12 @@
+PLACEHOLDER FILE FOR VIDEO
+==========================
+
+Replace this with your actual video file named: hero-video.mp4
+
+Recommended video specifications:
+- Format: MP4 (H.264)
+- Resolution: 1920x1080 or higher
+- File size: Optimized for web (under 10MB if possible)
+- Duration: 15-30 seconds loop
+
+Place the video file in this public directory with the name: hero-video.mp4

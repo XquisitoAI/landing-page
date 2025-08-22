@@ -1,0 +1,12 @@
+PLACEHOLDER FILE FOR IMAGE
+==========================
+
+Replace this with your actual image file named: people-eating.jpg
+
+Recommended image specifications:
+- Format: JPG or WebP
+- Resolution: At least 800x600
+- Style: Warm, friendly, modern restaurant atmosphere
+- Content: People enjoying food together
+
+Place the image file in this public directory with the name: people-eating.jpg
