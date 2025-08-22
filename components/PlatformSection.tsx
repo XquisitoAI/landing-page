@@ -73,17 +73,17 @@ const PlatformSection: React.FC = () => {
           position: scrollProgress > 0 ? 'absolute' : 'relative',
           top: scrollProgress > 0 ? '-200vh' : '0'
         }}>
-          <h2 className="text-5xl lg:text-6xl font-bold text-[#073C47] mb-6 font-helvetica">
-            <span className="italic text-[#3B82F6] font-playfair font-light">Una sola plataforma</span> para centralizar<br />
-            pedidos, pagos y marketing.
+          <h2 className="mb-6">
+            <span className="italic text-[#009DFF] font-playfair font-light text-5xl lg:text-6xl">Una sola plataforma</span><span style={{marginLeft: '15px'}}></span><span className="text-[#000000] font-medium" style={{fontFamily: 'Helvetica Neue', fontWeight: 500, fontSize: '65px', lineHeight: '65px'}}>para centralizar<br />
+            pedidos, pagos y marketing.</span>
           </h2>
           
-          <p className="text-[#073C47] text-lg opacity-80 mb-8 max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-[#000000] text-lg opacity-80 mb-8 max-w-[600px] mx-auto leading-relaxed">
             Nuestra solución tecnológica NFC para optimizar el servicio, integrar la operación de
             mesa y ofrecer datos estratégicos que impulsen la fidelidad y las ventas.
           </p>
           
-          <button className="bg-[#EAB3F4] text-[#073C47] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#E1A8EE] transition-colors duration-300 shadow-lg">
+          <button className="bg-[#EAB3F4] text-[#000000] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#E1A8EE] transition-colors duration-300 shadow-lg">
             Solicitar tu demo →
           </button>
         </div>
@@ -198,7 +198,13 @@ const PlatformSection: React.FC = () => {
             opacity: 1
           }}>
           <div className="relative w-32 h-32 bg-[#073C47] rounded-2xl flex items-center justify-center shadow-2xl">
-            <span className="text-white text-2xl font-bold">X</span>
+            <Image 
+              src="/assets/Images/logo-short-white.webp" 
+              alt="Xquisito Logo" 
+              width={64} 
+              height={64}
+              className="object-contain"
+            />
           </div>
         </div>
       </div>

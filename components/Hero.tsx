@@ -13,10 +13,10 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0 bg-[#173e44]" />
 
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-6 backdrop-blur-md">
-        <nav className="flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 py-6 backdrop-blur-md">
+        <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 lg:px-0">
           {/* Logo */}
-          <div className="relative h-12 w-40 lg:h-14 lg:w-48">
+          <div className="relative h-12 w-40 lg:h-14 lg:w-48 -ml-8">
             <Image
               src="/assets/Images/logo-white.webp"
               alt="XQUISITO Logo"
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center gap-x-8">
+          <div className="flex items-center gap-x-10">
             {/* Solutions Dropdown */}
             <div className="relative">
               <button
