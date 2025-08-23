@@ -284,7 +284,7 @@ const PlatformSection: React.FC = () => {
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeDasharray="400"
-                strokeDashoffset={scrollProgress > 0 ? (400 - (scrollProgress * 600)) : 400}
+                strokeDashoffset={scrollProgress > 0 ? (400 - (scrollProgress * 820)) : 400}
                 opacity={scrollProgress > 0 ? 1 : 0}
                 pathLength="400"
                 style={{
