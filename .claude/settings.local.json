@@ -8,6 +8,13 @@
       "Bash(git commit:*)",
       "Bash(git rm:*)",
       "Bash(git config:*)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
       "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)"
     ],
     "deny": [],

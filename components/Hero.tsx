@@ -1,11 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { ChevronDown, ArrowRight, Bell, Wallet, Users, ShoppingBag, DollarSign, UserCheck, Utensils } from 'lucide-react'
 
 const Hero: React.FC = () => {
   const [showSolutionsMenu, setShowSolutionsMenu] = useState(false)
+  const [usePinkLogo, setUsePinkLogo] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Look for the IntegrationCarousel section
+      const integrationSection = document.querySelector('section[class*="bg-gradient-to-r from-white to-[#D9F0FF]"]')
+      if (integrationSection) {
+        const rect = integrationSection.getBoundingClientRect()
+        // Change logo when section is 100px from top of viewport
+        setUsePinkLogo(rect.top <= 100)
+      }
+    }
+
+    // Use passive listener to avoid blocking other scroll events
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div className="relative min-h-screen bg-[#173e44] overflow-hidden">
@@ -16,12 +33,13 @@ const Hero: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 py-6 backdrop-blur-md">
         <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 lg:px-0">
           {/* Logo */}
-          <div className="relative h-12 w-40 lg:h-14 lg:w-48 -ml-8">
+          <div className={`relative ${usePinkLogo ? '-ml-8 h-14 w-48 lg:h-16 lg:w-56' : '-ml-8 h-14 w-48 lg:h-16 lg:w-56'}`}>
             <Image
-              src="/assets/Images/logo-white.webp"
+              src={usePinkLogo ? "/assets/Images/logo-pink.webp" : "/assets/Images/logo-white.webp"}
               alt="XQUISITO Logo"
               fill
-              className="object-contain"
+              className="object-contain transition-opacity duration-500 ease-in-out"
+              style={{ objectPosition: 'left center' }}
               priority
             />
           </div>
@@ -53,10 +71,15 @@ const Hero: React.FC = () => {
             </a>
 
             {/* Demo Button */}
-            <button className="bg-[#EAB3F4] text-black font-bold px-6 py-3 rounded-full flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-lg font-helvetica">
+            <a 
+              href="https://calendly.com/contacto-xquisito/new-meeting" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#EAB3F4] text-black font-bold px-6 py-3 rounded-full flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-lg font-helvetica"
+            >
               AGENDA TU DEMO
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </nav>
       </header>
@@ -75,10 +98,15 @@ const Hero: React.FC = () => {
                 Una plataforma digital que integra pedidos, pagos, marketing y datos de cada transacción y cliente para optimizar cada aspecto del negocio.
               </p>
 
-              <button className="bg-[#EAB3F4] text-black font-bold px-8 py-4 rounded-full flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-xl text-lg font-helvetica">
+              <a 
+                href="https://calendly.com/contacto-xquisito/new-meeting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-[#EAB3F4] text-black font-bold px-8 py-4 rounded-full flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-xl text-lg font-helvetica"
+              >
                 AGENDA TU DEMO
                 <ArrowRight className="w-6 h-6" />
-              </button>
+              </a>
             </div>
 
             {/* Right Content - Video */}

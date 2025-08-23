@@ -265,7 +265,7 @@ const PlatformSection: React.FC = () => {
             transition: 'none',
             opacity: 1
           }}>
-          <div className="relative w-32 h-32 bg-[#073C47] rounded-2xl flex items-center justify-center shadow-2xl">
+          <div className="relative w-32 h-32 bg-[#073C47] rounded-2xl flex items-center justify-center shadow-2xl" style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 15px 40px rgba(0, 0, 0, 0.2)' }}>
             {/* SVG para el borde dinámico */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -273,15 +273,15 @@ const PlatformSection: React.FC = () => {
               style={{ overflow: 'visible' }}
             >
               <rect
-                x="2"
-                y="2"
-                width="124"
-                height="124"
+                x="0"
+                y="0"
+                width="128"
+                height="128"
                 rx="16"
                 ry="16"
                 fill="none"
-                stroke="#EC4899"
-                strokeWidth="3"
+                stroke="#EAB3F4"
+                strokeWidth="5"
                 strokeLinecap="round"
                 strokeDasharray="400"
                 strokeDashoffset={scrollProgress > 0 ? (400 - (scrollProgress * 820)) : 400}
