@@ -19,14 +19,14 @@ const PlatformSection: React.FC = () => {
       
       // Start pinning when the X box would be centered (accounting for 120% position)
       const pinTriggerPoint = -windowHeight * 0.7
-      const endPinPoint = pinTriggerPoint - windowHeight * 30 // Aumentado a 30
+      const endPinPoint = pinTriggerPoint - windowHeight * 15 // Reducido para terminar cuando fade out completo
       const shouldPin = rect.top <= pinTriggerPoint && rect.top > endPinPoint
       
       if (shouldPin) {
         setIsAnimationActive(true)
         // Calculate progress based on how much we've scrolled past the pin point
         const scrolledPastPin = Math.abs(rect.top - pinTriggerPoint)
-        const extraScrollDistance = windowHeight * 30 // Aumentado a 30
+        const extraScrollDistance = windowHeight * 15 // Reducido para terminar cuando fade out completo
         const progress = Math.min(Math.max(scrolledPastPin / extraScrollDistance, 0), 1)
         setScrollProgress(progress)
       } else if (rect.top > pinTriggerPoint) {
@@ -49,8 +49,12 @@ const PlatformSection: React.FC = () => {
     let individualDelay;
     if (index === 1) {
       individualDelay = 0.06; // Amarillo - reducido para que salga cuando friends esté por desaparecer
-    } else if (index === 4) {
-      individualDelay = 0.15; // Cuadrado púrpura con icono de dispositivo
+    } else if (index === 7) {
+      individualDelay = 0.06; // POS - mismo delay que pedidos en mesa para sincronizar
+    } else if (index === 2 || index === 4) {
+      individualDelay = 0.15; // pagando.webp y beer.webp sincronizados
+    } else if (index === 3 || index === 5) {
+      individualDelay = 0.25; // pagos flexibles y campañas personalizadas sincronizados
     } else {
       individualDelay = index * 0.06;
     }
@@ -86,18 +90,18 @@ const PlatformSection: React.FC = () => {
         opacity = 0;
       }
       scale = 1; // Mantener tamaño original
-    } else if (index === 1) {
-      // Para el amarillo, fade out más corto y tardío
+    } else if (index === 1 || index === 7) {
+      // Para el amarillo (pedidos en mesa) y POS, fade out más corto y tardío
       const fadePhase = Math.max(0, (linearProgress - 0.8) * 10);
       opacity = 1 - fadePhase;
       scale = 1; // Mantener tamaño original
-    } else if (index === 4) {
-      // Para el morado con dispositivo, fade out antes de llegar al final
+    } else if (index === 2 || index === 4) {
+      // Para pagando.webp y beer.webp, fade out antes de llegar al final
       const fadePhase = Math.max(0, (linearProgress - 0.85) * 6.7);
       opacity = 1 - fadePhase;
       scale = 1; // Mantener tamaño original
-    } else if (index === 5) {
-      // Para "Campañas personalizadas", fade out antes de llegar al final
+    } else if (index === 3 || index === 5) {
+      // Para "Pagos flexibles" y "Campañas personalizadas", fade out antes de llegar al final
       const fadePhase = Math.max(0, (linearProgress - 0.85) * 6.7);
       opacity = 1 - fadePhase;
       scale = 1; // Mantener tamaño original
@@ -115,7 +119,7 @@ const PlatformSection: React.FC = () => {
   }
 
   return (
-    <section ref={sectionRef} className="bg-gradient-to-b from-[#D4EDFF] to-[#C6E2FA] h-[1800vh] relative">
+    <section ref={sectionRef} className="bg-gradient-to-b from-[#D4EDFF] to-[#C6E2FA] h-[900vh] relative">
       <div className={`w-full min-h-screen flex items-start justify-center pt-48 relative`} style={{
         position: scrollProgress > 0 && scrollProgress < 1 ? 'sticky' : 'relative',
         top: scrollProgress > 0 && scrollProgress < 1 ? '0' : 'auto'
@@ -169,19 +173,31 @@ const PlatformSection: React.FC = () => {
 
         <div className={`absolute right-[20%] z-20`} 
           style={{
-            ...getTransform(500, -300, 2, 0, 0),
+            ...getTransform( 568, -800, 2, -240, -130),
             top: scrollProgress > 0 ? '50%' : '50%'
           }}>
-          <div className="relative w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-lg shadow-lg flex items-center justify-center">
-            <span className="text-white text-xs font-bold">💳</span>
+          <div className="relative w-32 h-32 rounded-lg shadow-lg overflow-hidden">
+            <Image 
+              src="/assets/Images/pagando.webp" 
+              alt="Pagando" 
+              width={128} 
+              height={128}
+              className="object-cover w-full h-full"
+            />
           </div>
         </div>
         <div className={`absolute right-[8%] bg-[#FFB6C1] px-4 py-2 rounded-full shadow-md z-20`} 
           style={{
-            ...getTransform(-350, -400, 3, -415, -20),
+            ...getTransform(-517, -1120, 3, -517, -70),
             top: scrollProgress > 0 ? '45%' : '105%'
           }}>
-          <span className="text-[#DC143C] text-sm font-semibold">💳 Pagos flexibles</span>
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4 text-[#DC143C]" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+              <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"/>
+            </svg>
+            <span className="text-[#DC143C] text-sm font-semibold">Pagos flexibles</span>
+          </div>
         </div>
 
         <div className={`absolute left-[18%] z-20`} 
@@ -201,10 +217,15 @@ const PlatformSection: React.FC = () => {
         </div>
         <div className={`absolute left-[45%] bg-[#E6E6FA] px-4 py-2 rounded-full shadow-md z-20`} 
           style={{
-            ...getTransform(-40, 400, 5, -40, -10),
+            ...getTransform(-40, 1000, 5, -40, -50),
             top: scrollProgress > 0 ? '65%' : '170%'
           }}>
-          <span className="text-[#9370DB] text-sm font-semibold">📱 Campañas personalizadas</span>
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4 text-[#9370DB]" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M17.707 2.293a1 1 0 010 1.414l-13 13a1 1 0 01-1.414-1.414l13-13a1 1 0 011.414 0zM7 5a2 2 0 11-4 0 2 2 0 014 0zM17 15a2 2 0 11-4 0 2 2 0 014 0z" clipRule="evenodd"/>
+            </svg>
+            <span className="text-[#9370DB] text-sm font-semibold">Campañas personalizadas</span>
+          </div>
         </div>
 
         <div className={`absolute right-[10%] z-20`} 
@@ -224,37 +245,19 @@ const PlatformSection: React.FC = () => {
         </div>
         <div className={`absolute right-[5%] bg-[#F0FFF0] px-4 py-2 rounded-full shadow-md z-20`} 
           style={{
-            ...getTransform(600, 390, 7, -425, 0),
+            ...getTransform(600, 0, 7, -450, 0),
             top: scrollProgress > 0 ? '50%' : '50%'
           }}>
-          <span className="text-[#228B22] text-sm font-semibold">🔗 Integración con POS</span>
-        </div>
-
-
-        <div className={`absolute right-[10%] z-20`} 
-          style={{
-            ...getTransform(600, -50, 8),
-            top: scrollProgress > 0 ? '50%' : '110%'
-          }}>
-          <div className="relative w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg shadow-lg flex items-center justify-center">
-            <span className="text-white text-xs font-bold">💬</span>
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4 text-[#228B22]" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd" />
+            </svg>
+            <span className="text-[#228B22] text-sm font-semibold">Integración con POS</span>
           </div>
         </div>
-        <div className={`absolute right-[25%] bg-[#F5F5DC] px-6 py-3 rounded-full shadow-lg z-20`} 
-          style={{
-            ...getTransform(400, 200, 9),
-            top: scrollProgress > 0 ? '55%' : '115%'
-          }}>
-          <span className="text-[#8B4513] text-lg font-bold">🛒 Pedidos múltiples</span>
-        </div>
 
-        <div className={`absolute left-[30%] bg-[#E1E7FD] px-4 py-2 rounded-full shadow-md z-20`} 
-          style={{
-            ...getTransform(-450, 250, 10),
-            top: scrollProgress > 0 ? '60%' : '120%'
-          }}>
-          <span className="text-[#4169E1] text-sm font-semibold">📦 Pedidos para recoger</span>
-        </div>
+
+
 
         <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10`} 
           style={{ 
@@ -263,12 +266,38 @@ const PlatformSection: React.FC = () => {
             opacity: 1
           }}>
           <div className="relative w-32 h-32 bg-[#073C47] rounded-2xl flex items-center justify-center shadow-2xl">
+            {/* SVG para el borde dinámico */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 128 128"
+              style={{ overflow: 'visible' }}
+            >
+              <rect
+                x="2"
+                y="2"
+                width="124"
+                height="124"
+                rx="16"
+                ry="16"
+                fill="none"
+                stroke="#EC4899"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeDasharray="400"
+                strokeDashoffset={scrollProgress > 0 ? (400 - (scrollProgress * 600)) : 400}
+                opacity={scrollProgress > 0 ? 1 : 0}
+                pathLength="400"
+                style={{
+                  transition: 'none'
+                }}
+              />
+            </svg>
             <Image 
               src="/assets/Images/logo-short-white.webp" 
               alt="Xquisito Logo" 
               width={64} 
               height={64}
-              className="object-contain"
+              className="object-contain relative z-10"
             />
           </div>
         </div>
