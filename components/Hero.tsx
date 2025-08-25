@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
                 href="https://calendly.com/contacto-xquisito/new-meeting" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-[#EAB3F4] text-black font-bold px-8 py-4 rounded-full flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-xl text-lg font-helvetica"
+                className="bg-[#EAB3F4] text-black font-bold px-6 py-3 rounded-full inline-flex items-center gap-x-2 hover:bg-[#F5D0F9] transition-colors shadow-xl text-sm font-helvetica"
               >
                 AGENDA TU DEMO
                 <ArrowRight className="w-6 h-6" />

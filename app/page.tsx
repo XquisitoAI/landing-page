@@ -3,6 +3,7 @@ import ErrorsSection from '@/components/ErrorsSection'
 import PlatformSection from '@/components/PlatformSection'
 import StackedPin from '@/components/StackedPin'
 import IntegrationCarousel from '@/components/sections/IntegrationCarousel'
+import RewardsSection from '@/components/sections/RewardsSection'
 
 export default function Home() {
   const stackedPanels = [
@@ -24,6 +25,7 @@ export default function Home() {
         enterOffsetPx={30}
       />
       <IntegrationCarousel />
+      <RewardsSection />
     </main>
   )
 }
