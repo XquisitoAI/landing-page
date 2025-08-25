@@ -85,43 +85,53 @@ const StackedPin: React.FC<StackedPinProps> = ({
   const panelContents = [
     {
       // Panel A: Tap, Order & Pay
-      title: "Tap, Order & Pay",
-      subtitle: "Toca la tarjeta NFC, abre el menú digital, ordena y paga en cualquier momento, sin intervención del personal.",
+      title: "Tap Order & Pay",
+      subtitle: "",
       imageUrl: "/assets/Images/phone-mockup-1.png",
       features: ["Funciones"],
-      benefits: ["Beneficios"]
+      benefits: ["Beneficios"],
+      functionsText: "Menú digital al instante vía tarjeta NFC, pedidos desde el celular y pago sin contacto.",
+      benefitsText: "Agiliza el servicio sin intervención del personal, mejora la experiencia y reduce filas."
     },
     {
       // Panel B: Tap & Pay
       title: "Tap & Pay",
-      subtitle: "Ordena desde la app y paga acercando tu celular a la tarjeta NFC. Sin terminal física, sin cálculos manuales y sin esperas",
+      subtitle: "",
       imageUrl: "/assets/Images/phone-mockup-2.png",
       features: ["Funciones"],
-      benefits: ["Beneficios"]
+      benefits: ["Beneficios"],
+      functionsText: "Permite al cliente revisar su cuenta digitalmente y pagar desde su celular.",
+      benefitsText: "Mejora el cierre de la experiencia y reduce tiempos operativos."
     },
     {
       // Panel C: Flex Bill
       title: "Flex Bill",
-      subtitle: "Ideal para grupos grandes. Únete a la cuenta tocando la NFC y paga todo, en partes iguales o solo lo que consumiste.",
+      subtitle: "",
       imageUrl: "/assets/Images/tablet-mockup.png",
       features: ["Funciones"],
-      benefits: ["Beneficios"]
+      benefits: ["Beneficios"],
+      functionsText: "Cuenta compartida por mesa, pedidos individuales y pago dividido automático.",
+      benefitsText: "Cada cliente ordena y paga desde su celular, sin errores ni confusión al dividir la cuenta."
     },
     {
       // Panel D: Pick n Go
       title: "Pick n Go",
-      subtitle: "Pide y paga online antes de llegar; recoge tu orden lista, sin filas ni caja.",
+      subtitle: "",
       imageUrl: "/assets/Images/phone-mockup-3.png",
       features: ["Funciones"],
-      benefits: ["Beneficios"]
+      benefits: ["Beneficios"],
+      functionsText: "Orden anticipada, pago en línea y retiro sin contacto.",
+      benefitsText: "Reduce tiempos de espera, ideal para clientes que buscan rapidez y conveniencia."
     },
     {
       // Panel E: Food Hall
       title: "Food Hall",
-      subtitle: "Pide de varios puestos y paga en una sola transacción, sin múltiples cobros.",
+      subtitle: "",
       imageUrl: "/assets/Images/tablet-mockup-2.png",
       features: ["Funciones"],
-      benefits: ["Beneficios"]
+      benefits: ["Beneficios"],
+      functionsText: "Unifica pedidos de distintos locales en una sola orden y cobro.",
+      benefitsText: "Mejora la eficiencia operativa y ofrece comodidad al cliente en espacios con múltiples marcas."
     }
   ]
 
@@ -168,7 +178,7 @@ const StackedPin: React.FC<StackedPinProps> = ({
                 content={
                   <div className="w-full h-full flex items-center">
                     <div className="w-1/2 pr-8">
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 -mt-8">
                         {panel.title}
                       </h2>
                       <p className="text-lg md:text-xl text-gray-300 mb-8">
@@ -188,7 +198,7 @@ const StackedPin: React.FC<StackedPinProps> = ({
                             <div className="overflow-hidden transition-all duration-300 group-hover:max-h-40 max-h-0">
                               <div className="p-4 bg-white/10 backdrop-blur-md rounded-lg shadow-lg mt-2 border border-white/20">
                                 <p className="text-white text-sm">
-                                  Tecnología NFC integrada, menú digital interactivo, procesamiento de pagos seguro, seguimiento de pedidos en tiempo real.
+                                  {enrichedPanels[index].functionsText || "Tecnología NFC integrada, menú digital interactivo, procesamiento de pagos seguro, seguimiento de pedidos en tiempo real."}
                                 </p>
                               </div>
                             </div>
@@ -206,7 +216,7 @@ const StackedPin: React.FC<StackedPinProps> = ({
                             <div className="overflow-hidden transition-all duration-300 group-hover:max-h-40 max-h-0">
                               <div className="p-4 bg-white/10 backdrop-blur-md rounded-lg shadow-lg mt-2 border border-white/20">
                                 <p className="text-white text-sm">
-                                  Reducción del 60% en tiempo de servicio, incremento del 25% en satisfacción del cliente, eliminación de errores manuales en pedidos.
+                                  {enrichedPanels[index].benefitsText || "Reducción del 60% en tiempo de servicio, incremento del 25% en satisfacción del cliente, eliminación de errores manuales en pedidos."}
                                 </p>
                               </div>
                             </div>
