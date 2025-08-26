@@ -5,6 +5,7 @@ import StackedPin from '@/components/StackedPin'
 import IntegrationCarousel from '@/components/sections/IntegrationCarousel'
 import RewardsSection from '@/components/sections/RewardsSection'
 import FAQSection from '@/components/sections/FAQSection'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   const stackedPanels = [
@@ -28,6 +29,7 @@ export default function Home() {
       <IntegrationCarousel />
       <RewardsSection />
       <FAQSection />
+      <Footer />
     </main>
   )
 }
