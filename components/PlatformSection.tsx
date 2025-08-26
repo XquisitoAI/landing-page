@@ -152,7 +152,7 @@ const PlatformSection: React.FC = () => {
           }}>
           <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg shadow-lg overflow-hidden">
             <Image 
-              src="/assets/Images/friends.webp" 
+              src="/assets/Images/Friends.webp" 
               alt="Friends" 
               width={128} 
               height={128}
