@@ -7,6 +7,7 @@ import { ChevronDown, ArrowRight, Bell, Wallet, Users, ShoppingBag, DollarSign, 
 const Hero: React.FC = () => {
   const [showSolutionsMenu, setShowSolutionsMenu] = useState(false)
   const [usePinkLogo, setUsePinkLogo] = useState(false)
+  const [usePinkButtons, setUsePinkButtons] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,14 @@ const Hero: React.FC = () => {
         const rect = integrationSection.getBoundingClientRect()
         // Change logo when section is 100px from top of viewport
         setUsePinkLogo(rect.top <= 100)
+      }
+
+      // Look for the RewardsSection (Scala)
+      const rewardsSection = document.querySelector('section[class*="bg-white min-h-screen"]')
+      if (rewardsSection) {
+        const rect = rewardsSection.getBoundingClientRect()
+        // Change buttons to pink when RewardsSection is visible
+        setUsePinkButtons(rect.top <= 100)
       }
     }
 
@@ -50,7 +59,7 @@ const Hero: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setShowSolutionsMenu(!showSolutionsMenu)}
-                className="text-white flex items-center gap-x-1 font-medium hover:text-[#EAB3F4] transition-colors font-helvetica"
+                className={`${usePinkButtons ? 'text-[#EAB3F4]' : 'text-white'} flex items-center gap-x-1 font-medium hover:text-[#EAB3F4] transition-colors font-helvetica`}
               >
                 Soluciones
                 <ChevronDown className={`w-4 h-4 transition-transform ${showSolutionsMenu ? 'rotate-180' : ''}`} />
@@ -66,7 +75,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* FAQ Link */}
-            <a href="#" className="text-white font-medium hover:text-[#EAB3F4] transition-colors font-helvetica">
+            <a href="#" className={`${usePinkButtons ? 'text-[#EAB3F4]' : 'text-white'} font-medium hover:text-[#EAB3F4] transition-colors font-helvetica`}>
               FAQ
             </a>
 

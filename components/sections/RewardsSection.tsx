@@ -31,24 +31,29 @@ const RewardsSection: React.FC = () => {
         <div className="flex flex-col gap-12 md:grid md:grid-cols-2 md:gap-16 items-center">
           {/* Columna izquierda - Contenido de texto */}
           <div className="space-y-9">
-            <p className="text-black font-bold uppercase tracking-wider font-helvetica" style={{ fontSize: '25px', fontWeight: 700 }}>
+            <p className="text-black font-bold uppercase tracking-tight font-helvetica" style={{ fontSize: '25px', fontWeight: 700 }}>
               SCALA
             </p>
             
             <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
 Transforma información{' '}
               <br />
-              en <span className="text-[#593EFF] italic">clientes recurrentes</span>
+              en <span className="text-[#593EFF] italic font-playfair font-light">clientes recurrentes</span>
             </h2>
             
             <p className="text-base md:text-lg text-gray-700 mt-6 leading-relaxed">
-            Xquisito recopila datos reales de consumo, como la frecuencia de visita, los platillos favoritos, la edad, el género y el ticket promedio. Esto con el objetivo de que el restaurante pueda diseñar promociones y campañas personalizadas que fortalezcan la fidelidad de los clientes y aumenten las ventas. Todo se administra de manera sencilla a través de un panel de control.
+            Xquisito recopila datos de consumo para que el restaurante diseñe campañas personalizadas que aumenten ventas y fidelidad. Todo se gestiona fácilmente desde un panel de control.
             </p>
             
-            <button className="bg-[#F0A7E2] text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#e68cd6] transition-colors mt-8 inline-flex items-center gap-2">
+            <a 
+              href="https://calendly.com/contacto-xquisito/new-meeting" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#F0A7E2] text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#e68cd6] transition-colors mt-8 inline-flex items-center gap-2"
+            >
               AGENDA TU DEMO
               <span>→</span>
-            </button>
+            </a>
           </div>
 
           {/* Columna derecha - Imagen con elementos flotantes */}
