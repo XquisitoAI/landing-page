@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <ErrorsSection />
-      <PlatformSection />
+      <ErrorsSection /> 
+      <PlatformSection /> 
       <StackedPin 
         panels={stackedPanels}
         sectionId="features"
