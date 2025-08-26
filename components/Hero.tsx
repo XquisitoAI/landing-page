@@ -9,6 +9,26 @@ const Hero: React.FC = () => {
   const [usePinkLogo, setUsePinkLogo] = useState(false)
   const [usePinkButtons, setUsePinkButtons] = useState(false)
 
+  const scrollToStackedPanel = (panelIndex: number) => {
+    const stackedSection = document.getElementById('features')
+    if (stackedSection) {
+      const sectionTop = stackedSection.offsetTop
+      const sectionHeight = stackedSection.offsetHeight
+      const viewportHeight = window.innerHeight
+      
+      // Calculate scroll position for specific panel
+      // Each panel takes up 1/5 of the section (5 panels total)
+      const panelProgress = panelIndex / 4 // 0 to 1 for panels 0-4
+      const targetScroll = sectionTop + (sectionHeight - viewportHeight) * panelProgress
+      
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      })
+    }
+    setShowSolutionsMenu(false)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       // Look for the IntegrationCarousel section
@@ -65,17 +85,58 @@ const Hero: React.FC = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform ${showSolutionsMenu ? 'rotate-180' : ''}`} />
               </button>
               {showSolutionsMenu && (
-                <div className="absolute top-full mt-2 w-64 bg-white rounded-xl shadow-2xl py-2">
-                  <a href="#" className="block px-4 py-3 text-gray-800 hover:bg-gray-50 transition-colors">Gestión de Pedidos</a>
-                  <a href="#" className="block px-4 py-3 text-gray-800 hover:bg-gray-50 transition-colors">Pagos Digitales</a>
-                  <a href="#" className="block px-4 py-3 text-gray-800 hover:bg-gray-50 transition-colors">Marketing Automatizado</a>
-                  <a href="#" className="block px-4 py-3 text-gray-800 hover:bg-gray-50 transition-colors">Análisis de Datos</a>
+                <div className="absolute top-full mt-3 -left-40 w-[480px] bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-100 py-6 px-6 animate-in slide-in-from-top-2 duration-200">
+                  <div className="grid grid-cols-2 gap-x-8">
+                    {/* Column 1 */}
+                    <div className="space-y-2">
+                      <button onClick={() => scrollToStackedPanel(0)} className="group block w-full text-left px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          TAP ORDER & PAY
+                        </div>
+                      </button>
+                      <button onClick={() => scrollToStackedPanel(2)} className="group block w-full text-left px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          FLEX BILL
+                        </div>
+                      </button>
+                      <button onClick={() => scrollToStackedPanel(1)} className="group block w-full text-left px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          TAP & PAY
+                        </div>
+                      </button>
+                    </div>
+                    
+                    {/* Column 2 */}
+                    <div className="space-y-2">
+                      <button onClick={() => scrollToStackedPanel(4)} className="group block w-full text-left px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          FOOD HALL
+                        </div>
+                      </button>
+                      <button onClick={() => scrollToStackedPanel(3)} className="group block w-full text-left px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          PIK N GO
+                        </div>
+                      </button>
+                      <a href="#rewards" onClick={() => setShowSolutionsMenu(false)} className="group block px-4 py-3 text-gray-800 hover:text-[#EAB3F4] hover:bg-[#EAB3F4]/10 transition-all duration-200 rounded-xl font-medium text-sm border border-transparent hover:border-[#EAB3F4]/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#EAB3F4] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          SCALA
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* FAQ Link */}
-            <a href="#" className={`${usePinkButtons ? 'text-[#EAB3F4]' : 'text-white'} font-medium hover:text-[#EAB3F4] transition-colors font-helvetica`}>
+            <a href="#faq" className={`${usePinkButtons ? 'text-[#EAB3F4]' : 'text-white'} font-medium hover:text-[#EAB3F4] transition-colors font-helvetica`}>
               FAQ
             </a>
 
@@ -170,7 +231,7 @@ const Hero: React.FC = () => {
               </div>
               
               {/* Notification Cards - Bottom Right */}
-              <div className="absolute bottom-[-40px] right-[600px] space-y-3 z-10">
+              <div className="absolute bottom-[-40px] right-[600px] space-y-3 z-10 hidden lg:block">
                 {/* Order Ready Notification */}
                 <div className="bg-white/50 backdrop-blur-md rounded-2xl shadow-lg p-4 w-72 opacity-0 animate-fade-in-bounce">
                   <div className="flex items-center gap-3">

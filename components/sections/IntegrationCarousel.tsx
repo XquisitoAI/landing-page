@@ -47,13 +47,13 @@ const IntegrationCarousel: React.FC = () => {
         }
       `}</style>
       
-      <section className="bg-gradient-to-r from-white to-[#D9F0FF] min-h-screen px-8 md:px-16 flex items-center justify-center">
+      <section className="bg-gradient-to-r from-white to-[#D9F0FF] min-h-screen px-4 md:px-8 lg:px-16 flex items-center justify-center">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[2fr,1.5fr] gap-16 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[2fr,1.5fr] gap-8 md:gap-16 lg:gap-20 items-center">
             
             {/* Columna izquierda - Contenido de texto */}
-            <div className="lg:pr-6 max-w-3xl -ml-8">
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            <div className="lg:pr-6 max-w-3xl -ml-4 md:-ml-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="text-[#009DFF] italic font-playfair font-light">Integra Xquisito</span>
                 <span className="text-black"> con tu POS y</span>
                 <br />
@@ -75,8 +75,8 @@ const IntegrationCarousel: React.FC = () => {
             </div>
 
             {/* Columna derecha - Carrusel vertical de dos columnas */}
-            <div className="relative h-[500px] overflow-hidden">
-              <div className="grid grid-cols-3 gap-0 h-full">
+            <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-0 h-full">
                 
                 {/* Columna A - Movimiento de arriba para abajo */}
                 <div className="relative overflow-hidden ml--8 mr-7">

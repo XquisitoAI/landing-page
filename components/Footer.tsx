@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Instagram, Facebook } from 'lucide-react'
+import { Instagram, Facebook, Linkedin } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('')
@@ -14,23 +14,42 @@ const Footer: React.FC = () => {
     setEmail('')
   }
 
+  const scrollToStackedPanel = (panelIndex: number) => {
+    const stackedSection = document.getElementById('features')
+    if (stackedSection) {
+      const sectionTop = stackedSection.offsetTop
+      const sectionHeight = stackedSection.offsetHeight
+      const viewportHeight = window.innerHeight
+      
+      // Calculate scroll position for specific panel
+      // Each panel takes up 1/5 of the section (5 panels total)
+      const panelProgress = panelIndex / 4 // 0 to 1 for panels 0-4
+      const targetScroll = sectionTop + (sectionHeight - viewportHeight) * panelProgress
+      
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <footer className="bg-[#1D1C1F]">
-      <div className="max-w-screen-xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-12 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
           
           {/* Columna 1 - Logo y Redes Sociales */}
-          <div className="flex flex-col gap-4">
-            <div className="relative h-12 w-40">
+          <div className="flex flex-col gap-4 text-center md:text-left">
+            <div className="relative h-10 md:h-12 w-32 md:w-40 mx-auto md:mx-0">
               <Image
                 src="/assets/Images/logo-white.webp"
                 alt="XQUISITO Logo"
                 fill
-                className="object-contain object-left"
+                className="object-contain object-center md:object-left"
                 priority
               />
             </div>
-            <div className="flex flex-row items-center gap-4">
+            <div className="flex flex-row items-center gap-4 justify-center md:justify-start md:ml-4">
               <a 
                 href="#" 
                 className="text-white text-xl hover:opacity-70 transition cursor-pointer"
@@ -48,93 +67,75 @@ const Footer: React.FC = () => {
               <a 
                 href="#" 
                 className="text-white text-xl hover:opacity-70 transition cursor-pointer"
-                aria-label="TikTok"
+                aria-label="LinkedIn"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.294-1.98-1.294-3.244V.906h-3.068v13.512c0 1.077-.348 2.077-.983 2.883a4.55 4.55 0 0 1-2.567 1.565c-.927.23-1.879.138-2.739-.264a4.547 4.547 0 0 1-2.265-2.617 4.528 4.528 0 0 1 .264-3.552 4.55 4.55 0 0 1 2.567-2.265c.495-.123.997-.138 1.488-.046v-3.13a7.64 7.64 0 0 0-2.567.046 7.675 7.675 0 0 0-4.324 2.617 7.633 7.633 0 0 0-1.564 4.694c0 1.663.533 3.244 1.518 4.509a7.675 7.675 0 0 0 4.04 2.617c.858.214 1.747.214 2.605 0a7.675 7.675 0 0 0 4.04-2.617c.985-1.265 1.518-2.846 1.518-4.509V7.633a9.29 9.29 0 0 0 5.447 1.747V6.312a6.228 6.228 0 0 1-2.337-.75z"/>
-                </svg>
+                <Linkedin className="w-6 h-6" />
               </a>
             </div>
           </div>
 
           {/* Columna 2 - Links de Servicios */}
-          <div className="flex flex-col gap-4">
-            <ul className="space-y-3">
+          <div className="flex flex-col gap-4 text-center md:text-left">
+            <ul className="space-y-2 md:space-y-3">
               <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
+                <button 
+                  onClick={() => scrollToStackedPanel(0)}
+                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium text-left"
                 >
-                  ORDER, TAP & PAY
-                </a>
+                  TAP ORDER & PAY
+                </button>
               </li>
               <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
-                >
-                  TAP & PAY
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
+                <button 
+                  onClick={() => scrollToStackedPanel(2)}
+                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium text-left"
                 >
                   FLEX BILL
-                </a>
+                </button>
               </li>
               <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
+                <button 
+                  onClick={() => scrollToStackedPanel(1)}
+                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium text-left"
                 >
-                  PICK N GO
-                </a>
+                  TAP & PAY
+                </button>
               </li>
             </ul>
           </div>
 
           {/* Columna 3 - Links de Producto */}
-          <div className="flex flex-col gap-4">
-            <ul className="space-y-3">
+          <div className="flex flex-col gap-4 text-center md:text-left">
+            <ul className="space-y-2 md:space-y-3">
               <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
+                <button 
+                  onClick={() => scrollToStackedPanel(4)}
+                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium text-left"
                 >
                   FOOD HALL
-                </a>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToStackedPanel(3)}
+                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium text-left"
+                >
+                  PIK N GO
+                </button>
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="#rewards" 
                   className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
                 >
-                  RECOMPENSAS
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
-                >
-                  LEALTAD
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-white hover:opacity-70 cursor-pointer transition text-sm font-medium"
-                >
-                  FAQs
+                  SCALA
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Columna 4 - Newsletter */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-center md:text-left">
             <div>
               <h3 className="text-white font-bold text-base">
                 Entérate de todo lo importante
@@ -144,18 +145,18 @@ const Footer: React.FC = () => {
               </p>
             </div>
             <form onSubmit={handleNewsletterSubmit}>
-              <div className="flex flex-row items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-center gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@gmail.com"
-                  className="rounded-full px-4 py-2 text-sm w-full md:w-auto flex-1 text-black"
+                  className="rounded-full px-4 py-2 text-sm w-full sm:w-auto flex-1 text-black"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-white text-black px-4 py-2 rounded-full font-medium hover:opacity-90 transition text-sm"
+                  className="bg-white text-black px-4 py-2 rounded-full font-medium hover:opacity-90 transition text-sm w-full sm:w-auto"
                 >
                   OK
                 </button>

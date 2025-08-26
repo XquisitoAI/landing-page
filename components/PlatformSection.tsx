@@ -120,26 +120,26 @@ const PlatformSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="bg-gradient-to-b from-[#D4EDFF] to-[#C6E2FA] h-[900vh] relative">
-      <div className={`w-full min-h-screen flex items-start justify-center pt-48 relative`} style={{
+      <div className={`w-full min-h-screen flex items-start justify-center pt-24 md:pt-48 relative`} style={{
         position: scrollProgress > 0 && scrollProgress < 1 ? 'sticky' : 'relative',
         top: scrollProgress > 0 && scrollProgress < 1 ? '0' : 'auto'
       }}>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-12 text-center z-10" style={{ 
+        <div className="max-w-[1200px] mx-auto px-4 md:px-6 lg:px-12 text-center z-10" style={{ 
           visibility: scrollProgress > 0 ? 'hidden' : 'visible',
           position: scrollProgress > 0 ? 'absolute' : 'relative',
           top: scrollProgress > 0 ? '-200vh' : '0'
         }}>
-          <h2 className="mb-6">
-            <span className="italic text-[#009DFF] font-playfair font-light text-5xl lg:text-6xl">Una sola plataforma</span><span style={{marginLeft: '15px'}}></span><span className="text-[#000000] font-medium" style={{fontFamily: 'Helvetica Neue', fontWeight: 500, fontSize: '65px', lineHeight: '65px'}}>para centralizar<br />
+          <h2 className="mb-4 md:mb-6">
+            <span className="italic text-[#009DFF] font-playfair font-light text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Una sola plataforma</span><span className="hidden md:inline" style={{marginLeft: '15px'}}></span><span className="text-[#000000] font-medium text-3xl md:text-4xl lg:text-5xl xl:text-6xl block md:inline" style={{fontFamily: 'Helvetica Neue', fontWeight: 500, lineHeight: '1.1'}}>para centralizar<br />
             pedidos, pagos y marketing.</span>
           </h2>
           
-          <p className="text-[#000000] text-lg opacity-80 mb-8 max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-[#000000] text-base md:text-lg opacity-80 mb-6 md:mb-8 max-w-[600px] mx-auto leading-relaxed px-4 md:px-0">
             Nuestra solución tecnológica NFC para optimizar el servicio, integrar la operación de
             mesa y ofrecer datos estratégicos que impulsen la fidelidad y las ventas.
           </p>
           
-          <button className="bg-[#EAB3F4] text-[#000000] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#E1A8EE] transition-colors duration-300 shadow-lg">
+          <button className="bg-[#EAB3F4] text-[#000000] px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-[#E1A8EE] transition-colors duration-300 shadow-lg">
             Solicitar tu demo →
           </button>
         </div>
@@ -150,7 +150,7 @@ const PlatformSection: React.FC = () => {
             ...getTransform(-800, -900, 0, 150, -250),
             top: `${85 - (60 * Math.min(1, scrollProgress * 2.1))}%`
           }}>
-          <div className="relative w-32 h-32 rounded-lg shadow-lg overflow-hidden">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg shadow-lg overflow-hidden">
             <Image 
               src="/assets/Images/friends.webp" 
               alt="Friends" 
@@ -171,12 +171,12 @@ const PlatformSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={`absolute right-[20%] z-20`} 
+        <div className={`absolute right-[20%] md:right-[20%] z-20 hidden md:block`} 
           style={{
             ...getTransform( 568, -800, 2, -240, -130),
             top: scrollProgress > 0 ? '50%' : '50%'
           }}>
-          <div className="relative w-32 h-32 rounded-lg shadow-lg overflow-hidden">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg shadow-lg overflow-hidden">
             <Image 
               src="/assets/Images/pagando.webp" 
               alt="Pagando" 
@@ -186,7 +186,7 @@ const PlatformSection: React.FC = () => {
             />
           </div>
         </div>
-        <div className={`absolute right-[8%] bg-[#FFB6C1] px-4 py-2 rounded-full shadow-md z-20`} 
+        <div className={`absolute right-[8%] bg-[#FFB6C1] px-3 md:px-4 py-2 rounded-full shadow-md z-20 hidden md:block`} 
           style={{
             ...getTransform(-517, -1120, 3, -517, -70),
             top: scrollProgress > 0 ? '45%' : '105%'
@@ -205,7 +205,7 @@ const PlatformSection: React.FC = () => {
             ...getTransform(-550, 400, 4, 260, -130),
             top: scrollProgress > 0 ? '70%' : '130%'
           }}>
-          <div className="relative w-32 h-32 rounded-lg shadow-lg overflow-hidden">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg shadow-lg overflow-hidden">
             <Image 
               src="/assets/Images/beer.webp" 
               alt="Beer" 
@@ -233,7 +233,7 @@ const PlatformSection: React.FC = () => {
             ...getTransform(590, 800, 6, -360, 150),
             top: `${15 + (60 * Math.min(1, scrollProgress * 2.1))}%`
           }}>
-          <div className="relative w-32 h-32 rounded-lg shadow-lg overflow-hidden">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg shadow-lg overflow-hidden">
             <Image 
               src="/assets/Images/cel.webp" 
               alt="Cel" 

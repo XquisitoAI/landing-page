@@ -176,12 +176,12 @@ const StackedPin: React.FC<StackedPinProps> = ({
                 enterOffsetPx={enterOffsetPx}
                 reducedMotion={reducedMotion}
                 content={
-                  <div className="w-full h-full flex items-center">
-                    <div className="w-1/2 pr-8">
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 -mt-8">
+                  <div className="w-full h-full flex flex-col md:flex-row items-center">
+                    <div className="w-full md:w-1/2 pr-0 md:pr-8 text-center md:text-left">
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 md:mb-12 -mt-4 md:-mt-8">
                         {panel.title}
                       </h2>
-                      <p className="text-lg md:text-xl text-gray-300 mb-8">
+                      <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 px-4 md:px-0">
                         {panel.subtitle}
                       </p>
                       
@@ -232,10 +232,10 @@ const StackedPin: React.FC<StackedPinProps> = ({
                     </div>
 
                     {panel.imageUrl && (
-                      <div className="w-1/2 flex justify-center items-center">
+                      <div className="w-full md:w-1/2 flex justify-center items-center mt-6 md:mt-0">
                         {index === 0 ? (
                           <div 
-                            className="w-80 h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
+                            className="w-64 h-96 md:w-80 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
                             style={{
                               transform: isActive ? 'translateX(0) scale(1)' : 'translateX(100px) scale(0.9)',
                               opacity: isActive ? 1 : 0.7
@@ -253,7 +253,7 @@ const StackedPin: React.FC<StackedPinProps> = ({
                           </div>
                         ) : index === 1 ? (
                           <div 
-                            className="w-80 h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
+                            className="w-64 h-96 md:w-80 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
                             style={{
                               transform: isActive ? 'translateX(0) scale(1)' : 'translateX(100px) scale(0.9)',
                               opacity: isActive ? 1 : 0.7
@@ -289,7 +289,7 @@ const StackedPin: React.FC<StackedPinProps> = ({
                           </div>
                         ) : index === 3 ? (
                           <div 
-                            className="w-80 h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
+                            className="w-64 h-96 md:w-80 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
                             style={{
                               transform: isActive ? 'translateX(0) scale(1)' : 'translateX(100px) scale(0.9)',
                               opacity: isActive ? 1 : 0.7

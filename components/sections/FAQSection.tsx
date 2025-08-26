@@ -54,11 +54,11 @@ const FAQSection: React.FC = () => {
   ]
 
   return (
-    <section className="bg-gray-50 min-h-screen px-8 md:px-16 flex items-center justify-center">
+    <section id="faq" className="bg-gray-50 min-h-screen px-4 md:px-8 lg:px-16 flex items-center justify-center">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-start">
           {/* Columna izquierda - Imagen */}
-          <div className="relative max-w-lg mx-auto mt-20">
+          <div className="relative max-w-sm md:max-w-md lg:max-w-lg mx-auto mt-8 md:mt-12 lg:mt-20 order-2 lg:order-1">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/assets/Images/coffee-machine.webp"
@@ -72,16 +72,16 @@ const FAQSection: React.FC = () => {
           </div>
 
           {/* Columna derecha - FAQ Content */}
-          <div className="lg:pl-8 mt-20">
+          <div className="lg:pl-8 mt-8 md:mt-12 lg:mt-20 order-1 lg:order-2">
             {/* Header */}
-            <div className="mb-12">
+            <div className="mb-8 md:mb-12 text-center lg:text-left">
               <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider mb-4">
                 FAQs
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
                 ¿Tienes <span className="text-[#593EFF] italic font-playfair font-light">dudas?</span>
               </h2>
-              <p className="text-base text-gray-600 mt-4">
+              <p className="text-base text-gray-600 mt-4 px-4 lg:px-0">
                 Encuentra respuestas rápidas a las dudas más comunes sobre Xquisito.
               </p>
             </div>
@@ -96,9 +96,9 @@ const FAQSection: React.FC = () => {
                   <div key={faq.id} className="border-b border-gray-200">
                     <button
                       onClick={() => toggleItem(faq.id)}
-                      className="w-full py-4 text-left flex items-center justify-between cursor-pointer hover:opacity-80 transition-all duration-300 ease-in-out"
+                      className="w-full py-3 md:py-4 text-left flex items-center justify-between cursor-pointer hover:opacity-80 transition-all duration-300 ease-in-out"
                     >
-                      <span className="text-base font-medium text-gray-900 pr-4">
+                      <span className="text-sm md:text-base font-medium text-gray-900 pr-4">
                         {faq.question}
                       </span>
                       {activeItem === faq.id ? (
@@ -131,9 +131,9 @@ const FAQSection: React.FC = () => {
                   <div key={faq.id} className="border-b border-gray-200">
                     <button
                       onClick={() => toggleItem(faq.id)}
-                      className="w-full py-4 text-left flex items-center justify-between cursor-pointer hover:opacity-80 transition-all duration-300 ease-in-out"
+                      className="w-full py-3 md:py-4 text-left flex items-center justify-between cursor-pointer hover:opacity-80 transition-all duration-300 ease-in-out"
                     >
-                      <span className="text-base font-medium text-gray-900 pr-4">
+                      <span className="text-sm md:text-base font-medium text-gray-900 pr-4">
                         {faq.question}
                       </span>
                       {activeItem === faq.id ? (

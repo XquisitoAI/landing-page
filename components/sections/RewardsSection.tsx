@@ -26,22 +26,22 @@ const RewardsSection: React.FC = () => {
     return () => observer.disconnect()
   }, [])
   return (
-    <section ref={sectionRef} className="bg-white min-h-screen px-8 md:px-16 flex items-center justify-center">
+    <section ref={sectionRef} id="rewards" className="bg-white min-h-screen px-4 md:px-8 lg:px-16 flex items-center justify-center">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-12 md:grid md:grid-cols-2 md:gap-16 items-center">
+        <div className="flex flex-col gap-8 md:gap-12 lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           {/* Columna izquierda - Contenido de texto */}
-          <div className="space-y-9">
-            <p className="text-black font-bold uppercase tracking-tight font-helvetica" style={{ fontSize: '25px', fontWeight: 700 }}>
+          <div className="space-y-6 md:space-y-9 text-center lg:text-left">
+            <p className="text-black font-bold uppercase tracking-tight font-helvetica text-xl md:text-2xl lg:text-[25px]" style={{ fontWeight: 700 }}>
               SCALA
             </p>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
 Transforma información{' '}
               <br />
               en <span className="text-[#593EFF] italic font-playfair font-light">clientes recurrentes</span>
             </h2>
             
-            <p className="text-base md:text-lg text-gray-700 mt-6 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 mt-6 leading-relaxed px-4 lg:px-0">
             Xquisito recopila datos de consumo para que el restaurante diseñe campañas personalizadas que aumenten ventas y fidelidad. Todo se gestiona fácilmente desde un panel de control.
             </p>
             
@@ -49,7 +49,7 @@ Transforma información{' '}
               href="https://calendly.com/contacto-xquisito/new-meeting" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-[#F0A7E2] text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#e68cd6] transition-colors mt-8 inline-flex items-center gap-2"
+              className="bg-[#F0A7E2] text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#e68cd6] transition-colors mt-8 inline-flex items-center gap-2 mx-auto lg:mx-0"
             >
               AGENDA TU DEMO
               <span>→</span>
@@ -57,7 +57,7 @@ Transforma información{' '}
           </div>
 
           {/* Columna derecha - Imagen con elementos flotantes */}
-          <div className="relative w-full overflow-visible">
+          <div className="relative w-full max-w-md lg:max-w-lg mx-auto overflow-visible mt-8 lg:mt-20">
             <div className="rounded-xl overflow-hidden relative">
               <Image
                 src="/assets/Images/lady.webp"
@@ -72,7 +72,7 @@ Transforma información{' '}
             {/* Contenedor para burbujas con overflow visible */}
             <div className="absolute inset-0 pointer-events-none overflow-visible">
               {/* Burbuja 1 - Puntos ganados */}
-              <div className={`absolute bg-white/50 backdrop-blur-md rounded-2xl shadow-lg p-4 w-72 ${isVisible ? 'opacity-0 animate-fade-in-bounce' : 'opacity-0'}`} style={{ top: '240px', right: '10px' }}>
+              <div className={`absolute bg-white/50 backdrop-blur-md rounded-2xl shadow-lg p-3 md:p-4 w-64 md:w-72 ${isVisible ? 'opacity-0 animate-fade-in-bounce' : 'opacity-0'} hidden sm:block`} style={{ top: '180px', right: '10px' }}>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Star className="w-5 h-5 text-white" />
@@ -86,7 +86,7 @@ Transforma información{' '}
               </div>
               
               {/* Burbuja 2 - Descuento */}
-              <div className={`absolute bg-white/50 backdrop-blur-md rounded-2xl shadow-lg p-4 w-72 ${isVisible ? 'opacity-0 animate-fade-in-bounce-delay' : 'opacity-0'}`} style={{ bottom: '60px', right: '-45px' }}>
+              <div className={`absolute bg-white/50 backdrop-blur-md rounded-2xl shadow-lg p-3 md:p-4 w-64 md:w-72 ${isVisible ? 'opacity-0 animate-fade-in-bounce-delay' : 'opacity-0'} hidden sm:block`} style={{ bottom: '40px', right: '-20px' }}>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Gift className="w-5 h-5 text-white" />
