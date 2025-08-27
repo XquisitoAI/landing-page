@@ -135,8 +135,8 @@ const PlatformSection: React.FC = () => {
           </h2>
           
           <p className="text-[#000000] text-base md:text-lg opacity-80 mb-6 md:mb-8 max-w-[600px] mx-auto leading-relaxed px-4 md:px-0">
-            Nuestra solución tecnológica NFC para optimizar el servicio, integrar la operación de
-            mesa y ofrecer datos estratégicos que impulsen la fidelidad y las ventas.
+          Sin mensualidades, con una comisión más baja que una TPV 
+          y pagos a meses que impulsan el consumo de tus clientes.
           </p>
           
           <button className="bg-[#EAB3F4] text-[#000000] px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-[#E1A8EE] transition-colors duration-300 shadow-lg">

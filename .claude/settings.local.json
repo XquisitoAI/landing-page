@@ -15,7 +15,10 @@
       "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
       "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
       "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
-      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)"
+      "Read(/C:\\Users\\Diego\\Pictures\\Screenshots/**)",
+      "Bash(git pull:*)",
+      "Bash(npm run build:*)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

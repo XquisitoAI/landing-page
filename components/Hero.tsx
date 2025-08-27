@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
               </h1>
               
               <p className="text-lg lg:text-xl text-white/90 max-w-lg font-helvetica">
-                Una plataforma digital que integra pedidos, pagos, marketing y datos de cada transacción y cliente para optimizar cada aspecto del negocio.
+              Una plataforma digital que integra pedidos, pagos, marketing y datos de cada transacción para optimizar cada aspecto del negocio.
               </p>
 
               <a 
